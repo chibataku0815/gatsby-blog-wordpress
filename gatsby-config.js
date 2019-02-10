@@ -23,6 +23,14 @@ module.exports = {
         verboseOutput: false,
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Noto+Sans+JP', 'Noto+Sans+JP'],
+        },
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-purgecss',

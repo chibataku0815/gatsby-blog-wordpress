@@ -2,7 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import Navbar from './Navbar'
-import './all.sass'
+// eslint-disable-next-line import/no-unresolved
+import '../scss/all.scss'
 
 const TemplateWrapper = ({ children }) => (
   <div>
