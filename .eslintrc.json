@@ -9,7 +9,8 @@
     "react/require-default-props": "off",
     "react/prop-types": "off",
     "react/no-danger": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "import/no-unresolved": "off"
   },
   "settings": {
     "import/core-modules": []

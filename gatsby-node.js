@@ -222,6 +222,21 @@ exports.createPages = ({
     })
 }
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
+      alias: { $components: path.resolve(__dirname, "src/components") }
+    }
+  })
+}
+
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: "@babel/plugin-proposal-export-default-from"
+  })
+}
+
 exports.onCreateNode = ({
   node,
   actions,
