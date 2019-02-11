@@ -7,6 +7,12 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass-resources`,
+      options: {
+        resources: ['node_modules/bootstrap/scss/_functions.scss','node_modules/bootstrap/scss/_variables.scss','node_modules/bootstrap/scss/_mixins.scss']
+      }
+    },
     'gatsby-plugin-root-import',
     {
       resolve: 'gatsby-source-wordpress',
