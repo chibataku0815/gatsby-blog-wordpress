@@ -1,21 +1,82 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["react", "jsx-a11y", "import"],
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/flowtype",
+    "eslint:recommended"
+  ],
   "rules": {
-    "react/jsx-filename-extension": [1, {
-      "extensions": [".js", ".jsx"]
-    }],
-    "react/prefer-stateless-function": "off",
-    "react/require-default-props": "off",
-    "react/prop-types": "off",
-    "react/no-danger": "off",
-    "consistent-return": "off",
-    "import/no-unresolved": "off"
+    "no-console": "off",
+    "import/no-unresolved": "off",
+    "no-param-reassign": 1,
+    "react/prefer-stateless-function": [2, { "ignorePureComponents": false }],
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/href-no-hash": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "camelcase": 1,
+    "no-constant-condition": [1, { "checkLoops": false }],
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement",
+      "BinaryExpression[operator='in']"
+    ],
+    "no-duplicate-imports": 0,
+    "react/prop-types": [0],
+    "react/require-default-props": [0],
+    "react/no-unused-prop-types": [0],
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1,
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": 0,
+    "no-control-regex": 1,
+    "import/extensions": 1,
+    "jsx-a11y/label-has-for": 1,
+    "react/jsx-no-target-blank": 1,
+    "react/sort-comp": 1,
+    "react/default-props-match-prop-types": 1,
+    "react/destructuring-assignment": 1
   },
   "settings": {
-    "import/core-modules": []
+    "babel-module": {
+      "alias": {
+        "@": "./",
+        "actions": "./src/actions",
+        "commons": "./src/commons",
+        "components": "./src/components",
+        "config": "./src/config",
+        "store": "./src/store",
+        "test": "./test",
+        "@images": "./images"
+      }
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
   },
   "env": {
     "browser": true
-  }
+  },
+  "globals": {
+    "React": true,
+    "expect": true,
+    "test": true,
+    "beforeEach": true,
+    "jest": true,
+    "describe": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react",
+    "flowtype",
+    "prettier"
+  ]
 }

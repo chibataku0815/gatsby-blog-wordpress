@@ -1,24 +1,14 @@
 const _ = require('lodash')
 const path = require('path')
-const {
-  createFilePath
-} = require('gatsby-source-filesystem')
-const {
-  paginate
-} = require('gatsby-awesome-pagination')
+const { createFilePath } = require('gatsby-source-filesystem')
+const { paginate } = require('gatsby-awesome-pagination')
 
 const getOnlyPublished = edges =>
-  _.filter(edges, ({
-    node
-  }) => node.status === 'publish')
+  _.filter(edges, ({ node }) => node.status === 'publish')
 
-exports.createPages = ({
-  actions,
-  graphql
-}) => {
-  const {
-    createPage
-  } = actions
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+
   return graphql(`
     {
       allWordpressPage {
@@ -46,14 +36,12 @@ exports.createPages = ({
 
       const allPages = result.data.allWordpressPage.edges
       const pages =
-        process.env.NODE_ENV === 'production' ?
-        getOnlyPublished(allPages) :
-        allPages
+        process.env.NODE_ENV === 'production'
+          ? getOnlyPublished(allPages)
+          : allPages
 
       // Call `createPage()` once per WordPress page
-      _.each(pages, ({
-        node: page
-      }) => {
+      _.each(pages, ({ node: page }) => {
         createPage({
           path: `/${page.slug}/`,
           component: pageTemplate,
@@ -63,7 +51,8 @@ exports.createPages = ({
         })
       })
     })
-    .then(() => graphql(`
+    .then(() => {
+      return graphql(`
         {
           allWordpressPost {
             edges {
@@ -75,7 +64,8 @@ exports.createPages = ({
             }
           }
         }
-      `))
+      `)
+    })
     .then(result => {
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
@@ -88,14 +78,12 @@ exports.createPages = ({
       // In production builds, filter for only published posts.
       const allPosts = result.data.allWordpressPost.edges
       const posts =
-        process.env.NODE_ENV === 'production' ?
-        getOnlyPublished(allPosts) :
-        allPosts
+        process.env.NODE_ENV === 'production'
+          ? getOnlyPublished(allPosts)
+          : allPosts
 
       // Iterate over the array of posts
-      _.each(posts, ({
-        node: post
-      }) => {
+      _.each(posts, ({ node: post }) => {
         // Create the Gatsby page for this WordPress post
         createPage({
           path: `/${post.slug}/`,
@@ -111,13 +99,12 @@ exports.createPages = ({
         createPage,
         items: posts,
         itemsPerPage: 10,
-        pathPrefix: ({
-          pageNumber
-        }) => (pageNumber === 0 ? `/` : `/page`),
+        pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `/` : `/page`),
         component: blogTemplate,
       })
     })
-    .then(() => graphql(`
+    .then(() => {
+      return graphql(`
         {
           allWordpressCategory(filter: { count: { gt: 0 } }) {
             edges {
@@ -129,7 +116,8 @@ exports.createPages = ({
             }
           }
         }
-      `))
+      `)
+    })
     .then(result => {
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
@@ -139,9 +127,7 @@ exports.createPages = ({
       const categoriesTemplate = path.resolve(`./src/templates/category.js`)
 
       // Create a Gatsby page for each WordPress Category
-      _.each(result.data.allWordpressCategory.edges, ({
-        node: cat
-      }) => {
+      _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
         createPage({
           path: `/categories/${cat.slug}/`,
           component: categoriesTemplate,
@@ -152,7 +138,8 @@ exports.createPages = ({
         })
       })
     })
-    .then(() => graphql(`
+    .then(() => {
+      return graphql(`
         {
           allWordpressTag(filter: { count: { gt: 0 } }) {
             edges {
@@ -164,7 +151,8 @@ exports.createPages = ({
             }
           }
         }
-      `))
+      `)
+    })
 
     .then(result => {
       if (result.errors) {
@@ -175,9 +163,7 @@ exports.createPages = ({
       const tagsTemplate = path.resolve(`./src/templates/tag.js`)
 
       // Create a Gatsby page for each WordPress tag
-      _.each(result.data.allWordpressTag.edges, ({
-        node: tag
-      }) => {
+      _.each(result.data.allWordpressTag.edges, ({ node: tag }) => {
         createPage({
           path: `/tags/${tag.slug}/`,
           component: tagsTemplate,
@@ -188,7 +174,8 @@ exports.createPages = ({
         })
       })
     })
-    .then(() => graphql(`
+    .then(() => {
+      return graphql(`
         {
           allWordpressWpUsers {
             edges {
@@ -199,7 +186,8 @@ exports.createPages = ({
             }
           }
         }
-      `))
+      `)
+    })
     .then(result => {
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
@@ -208,9 +196,7 @@ exports.createPages = ({
 
       const authorTemplate = path.resolve(`./src/templates/author.js`)
 
-      _.each(result.data.allWordpressWpUsers.edges, ({
-        node: author
-      }) => {
+      _.each(result.data.allWordpressWpUsers.edges, ({ node: author }) => {
         createPage({
           path: `/author/${author.slug}`,
           component: authorTemplate,
@@ -225,32 +211,23 @@ exports.createPages = ({
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-      alias: { $components: path.resolve(__dirname, "src/components") }
-    }
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      alias: { $components: path.resolve(__dirname, 'src/components') },
+    },
   })
 }
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
-    name: "@babel/plugin-proposal-export-default-from"
+    name: '@babel/plugin-proposal-export-default-from',
   })
 }
 
-exports.onCreateNode = ({
-  node,
-  actions,
-  getNode
-}) => {
-  const {
-    createNodeField
-  } = actions
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({
-      node,
-      getNode
-    })
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,

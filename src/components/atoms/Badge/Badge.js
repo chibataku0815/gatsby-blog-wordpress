@@ -1,8 +1,12 @@
 // @flow
 
-import React from 'react';
-import style from './style.module.scss';
+import React from 'react'
+import classNames from 'classnames'
+import style from './style.module.scss'
+import type { Props } from './type'
 
-const Badge = ({ value }) => <span className={style.badge}>test</span>
+const moduleClass = classNames(style.badge, {})
 
-export default Badge;
+const Badge = ({ value }: Props) => <span className={moduleClass}>{value}</span>
+
+export default Badge

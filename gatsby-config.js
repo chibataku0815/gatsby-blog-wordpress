@@ -10,10 +10,29 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass-resources`,
       options: {
-        resources: ['node_modules/bootstrap/scss/_functions.scss','node_modules/bootstrap/scss/_variables.scss','node_modules/bootstrap/scss/_mixins.scss']
-      }
+        resources: [
+          'node_modules/bootstrap/scss/_functions.scss',
+          'node_modules/bootstrap/scss/_variables.scss',
+          'node_modules/bootstrap/scss/_mixins.scss',
+        ],
+      },
     },
     'gatsby-plugin-root-import',
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@src': 'src',
+          '@components': 'src/components',
+          '@layouts': 'src/layouts',
+          '@pages': 'src/pages',
+          '@sass': 'src/sass',
+          '@templates': 'src/templates',
+          '@posts': 'content/posts',
+        },
+        extensions: ['js'],
+      },
+    },
     {
       resolve: 'gatsby-source-wordpress',
       options: {
@@ -38,6 +57,7 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-flow',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-purgecss',
