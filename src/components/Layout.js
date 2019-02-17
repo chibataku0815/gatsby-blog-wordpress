@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Navbar from '@components/Navbar'
+import { Navbar } from '@components/Organisms/'
 import { Badge } from '@components/atoms/'
 // eslint-disable-next-line import/no-unresolved
 import '../scss/all.scss'

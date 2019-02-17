@@ -9,7 +9,7 @@
 @import './colors.scss';
 
 // Reassign color vars to semantic color scheme
-$theme-colors: (primary: $purple,
+$theme-colors: (primary: $indigo,
 secondary: $gray-600,
 success: $green,
 info: $cyan,
@@ -17,7 +17,7 @@ warning: $yellow,
 danger: $red,
 light: $gray-100,
 dark: $gray-800,
-) !default;
+);
 
 // Options
 //
@@ -44,7 +44,7 @@ xl: 780px,
 //
 // Settings for the `<body>` element.
 
-$body-bg: $white !default;
+$body-bg: $pink !default;
 $body-color: $gray-750 !default;
 $inverse-bg: $gray-900 !default;
 $inverse-color: $gray-600 !default;
@@ -58,7 +58,6 @@ $link-hover-decoration: none !default;
 // Fonts
 //
 @import './fonts.scss';
-
 @import '~bootstrap/scss/bootstrap.scss';
 
 html,
