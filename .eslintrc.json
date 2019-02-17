@@ -39,7 +39,8 @@
     "react/jsx-no-target-blank": 1,
     "react/sort-comp": 1,
     "react/default-props-match-prop-types": 1,
-    "react/destructuring-assignment": 1
+    "react/destructuring-assignment": 1,
+    "react/prefer-stateless-function": "off"
   },
   "settings": {
     "babel-module": {
