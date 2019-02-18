@@ -10,11 +10,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass-resources`,
       options: {
-        resources: [
-          'node_modules/bootstrap/scss/_functions.scss',
-          'node_modules/bootstrap/scss/_variables.scss',
-          'node_modules/bootstrap/scss/_mixins.scss',
-        ],
+        resources: 'node_modules/bootstrap/scss/bootstrap.scss',
       },
     },
     'gatsby-plugin-root-import',
