@@ -47,13 +47,6 @@ export const pageQuery = graphql`
     featured_media {
       link
     }
-    author {
-      name
-      slug
-      avatar_urls {
-        wordpress_48
-      }
-    }
     date(formatString: "YYYY年MM月DD日")
     slug
   }
