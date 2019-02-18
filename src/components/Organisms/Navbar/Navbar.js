@@ -6,7 +6,7 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 import { Logo } from 'components/atoms/'
 import style from './style.module.scss'
 
-const moduleClass = classNames(style.navLink)
+const moduleClass = classNames(style.navLink, 'nav-link')
 
 const Navbar = () => (
   <StaticQuery
