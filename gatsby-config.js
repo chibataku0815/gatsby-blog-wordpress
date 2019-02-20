@@ -7,6 +7,18 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-root-import',
+    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass-resources`,
+      options: {
+        resources: [
+          'node_modules/bootstrap/scss/_functions.scss',
+          'node_modules/bootstrap/scss/_variables.scss',
+          'src/scss/colors.scss',
+          'node_modules/bootstrap/scss/_mixins.scss',
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -51,16 +63,5 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-purgecss',
     'gatsby-plugin-netlify',
-    'gatsby-plugin-sass',
-    {
-      resolve: `gatsby-plugin-sass-resources`,
-      options: {
-        resources: [
-          'node_modules/bootstrap/scss/_functions.scss',
-          'node_modules/bootstrap/scss/_variables.scss',
-          'node_modules/bootstrap/scss/_mixins.scss',
-        ],
-      },
-    },
   ],
 }
