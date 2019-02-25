@@ -9,7 +9,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <section className="section pt-5">
-        <div className="container-fluid">
+        <div className="container p-0">
           <div className="col-lg-8">
             <h1 className="">{title}</h1>
             {posts.map(({ node: post }) => (

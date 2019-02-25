@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Navbar } from '@components/Organisms/'
-// eslint-disable-next-line import/no-unresolved
+import { Footer } from '@components/molecules/'
 import '../scss/all.scss'
 
 const TemplateWrapper = ({ children }) => (
@@ -9,6 +9,7 @@ const TemplateWrapper = ({ children }) => (
     <Helmet title="Home | Gatsby + WordPress" />
     <Navbar />
     <div>{children}</div>
+    <Footer />
   </div>
 )
 

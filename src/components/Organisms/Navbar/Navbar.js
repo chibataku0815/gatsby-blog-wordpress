@@ -20,21 +20,23 @@ const Navbar = () => (
     `}
     render={data => (
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <Logo />
-        <div className="collapse navbar-collapse justify-content-end">
-          <ul className="navbar-nav">
-            {data.wordpressWpApiMenusMenusItems.items.map(item => (
-              <li className="nav-item" key={item.wordpress_id}>
-                <Link
-                  className={style.navLink}
-                  to={item.url}
-                  key={item.wordpress_id}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="container">
+          <Logo />
+          <div className="collapse navbar-collapse justify-content-end">
+            <ul className="navbar-nav">
+              {data.wordpressWpApiMenusMenusItems.items.map(item => (
+                <li className="nav-item" key={item.wordpress_id}>
+                  <Link
+                    className={style.navLink}
+                    to={item.url}
+                    key={item.wordpress_id}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </nav>
     )}
