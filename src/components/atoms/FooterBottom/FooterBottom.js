@@ -18,13 +18,16 @@ const FooterBottom = () => (
       }
     `}
     render={data => (
-      <div className={style.footerBottom}>
+      <div className={style['footer-bottom']}>
         <div className="container d-flex align-items-center justify-content-between">
-          <ul className={style.footerBottomNav}>
+          <ul className={style['footer-bottom-nav']}>
             {data.wordpressWpApiMenusMenusItems.items.map(item => (
-              <li className={style.footerBottomNavItem} key={item.wordpress_id}>
+              <li
+                className={style['footer-bottom-nav-item']}
+                key={item.wordpress_id}
+              >
                 <Link
-                  className={style.footerBottomText}
+                  className={style['footer-bottom-text']}
                   to={item.url}
                   key={item.wordpress_id}
                 >

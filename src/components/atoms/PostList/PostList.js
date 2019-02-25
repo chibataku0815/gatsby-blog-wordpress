@@ -15,23 +15,23 @@ export default class IndexPage extends React.Component {
             {posts.map(({ node: post }) => (
               <div className={style.card} key={post.id}>
                 <Link className="d-flex" to={post.slug}>
-                  <div className={style.cardThumb}>
+                  <div className={style['card-thumb']}>
                     <img
                       src={post.featured_media.link}
-                      className={style.cardImg}
+                      className={style['card-img']}
                       alt=""
                     />
                   </div>
-                  <div className={style.cardBody}>
-                    <h3 className={style.cardTitle}>{post.title}</h3>
+                  <div className={style['card-body']}>
+                    <h3 className={style['card-title']}>{post.title}</h3>
                     <div
-                      className={style.cardText}
+                      className={style['card-text']}
                       dangerouslySetInnerHTML={{
                         __html: post.excerpt.substr(0, 100),
                       }}
                     />
                     <div className="text-right">
-                      <small className={style.cardDate}>{post.date}</small>
+                      <small className={style['card-date']}>{post.date}</small>
                     </div>
                   </div>
                 </Link>

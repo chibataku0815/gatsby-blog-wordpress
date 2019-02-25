@@ -27,7 +27,7 @@ const Navbar = () => (
               {data.wordpressWpApiMenusMenusItems.items.map(item => (
                 <li className="nav-item" key={item.wordpress_id}>
                   <Link
-                    className={style.navLink}
+                    className={style['nav-link']}
                     to={item.url}
                     key={item.wordpress_id}
                   >
