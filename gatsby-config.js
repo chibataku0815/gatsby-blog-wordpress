@@ -22,6 +22,7 @@ module.exports = {
           'node_modules/bootstrap/scss/_functions.scss',
           'node_modules/bootstrap/scss/_variables.scss',
           'src/scss/colors.scss',
+          'src/scss/fonts.scss',
           'node_modules/bootstrap/scss/_mixins.scss',
         ],
       },
@@ -55,6 +56,12 @@ module.exports = {
         auth: {},
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: ['material icons'],
       },
     },
     {

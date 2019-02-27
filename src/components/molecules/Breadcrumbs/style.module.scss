@@ -1,0 +1,34 @@
+@import '~bootstrap/scss/_breadcrumb.scss';
+
+.breadcrumb {
+  &-items {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+
+    @extend .breadcrumb-items;
+
+    &::after {
+      content: "keyboard_arrow_right";
+      font-family: $font-family-icons;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+  &-link {
+    color: map-get($theme-colors, primary);
+  }
+
+  &-icons {
+    margin-right: 3px;
+    padding: 3px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 4px rgba($gray-300, 1);
+    color: map-get($theme-colors, primary);
+    font-size: 15px;
+  }
+}
