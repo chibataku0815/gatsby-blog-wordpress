@@ -4,11 +4,15 @@
   &-items {
     display: flex;
     align-items: center;
+    padding: 0 5px;
     font-size: 0.85rem;
 
     @extend .breadcrumb-items;
 
     &::after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       content: "keyboard_arrow_right";
       font-family: $font-family-icons;
     }
