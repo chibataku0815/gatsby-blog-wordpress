@@ -1,0 +1,6 @@
+.card {
+  margin-bottom: 15px;
+  border-color: $gray-200;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease, opacity 0.3s ease, border 0.3s ease, padding 0.3s ease, left 0.3s ease, bottom 0.3s ease, box-shadow 0.3s ease;
+}
