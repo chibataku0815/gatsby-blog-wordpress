@@ -17,7 +17,7 @@ const Breadcrumbs = ({ data }) => {
           </Link>
         </li>
         {(() => {
-          if (data.categories.length) {
+          if (data.categories) {
             return (
               <li className={style['breadcrumb-items']}>
                 <Link
@@ -29,6 +29,8 @@ const Breadcrumbs = ({ data }) => {
                 </Link>
               </li>
             )
+          } else {
+            return <p>test</p>
           }
         })()}
         <li className={style['breadcrumb-items']}>

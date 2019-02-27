@@ -34,7 +34,7 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <PageTemplate title={page.title} content={page.content} />
-      <Breadcrumbs data={data} />
+      <Breadcrumbs data={data.wordpressPage} />
     </Layout>
   )
 }
