@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
+import { Breadcrumbs } from '@components/molecules/'
 
 export const BlogPostTemplate = ({
   content,
@@ -13,8 +14,8 @@ export const BlogPostTemplate = ({
   author,
 }) => {
   return (
-    <section className="section">
-      <div className="container content">
+    <section>
+      <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
@@ -79,6 +80,7 @@ const BlogPost = ({ data }) => {
         date={post.date}
         author={post.author}
       />
+      <Breadcrumbs data={data.wordpressPost} />
     </Layout>
   )
 }

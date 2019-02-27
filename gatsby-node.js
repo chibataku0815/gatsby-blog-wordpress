@@ -129,7 +129,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Create a Gatsby page for each WordPress Category
       _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
         createPage({
-          path: `/categories/${cat.slug}/`,
+          path: `/${cat.slug}/`,
           component: categoriesTemplate,
           context: {
             name: cat.name,
