@@ -53,13 +53,15 @@ CustomPostTypes.propTypes = {
 export default CustomPostTypes
 
 export const CustomPostTypesQuery = graphql`
-  query GetCreditCardID($id: String!) {
-    allWordpressWpCreditCard(id: { eq: $id }) {
-      id
-      title
-      slug
-      content
-      date(formatString: "MMMM DD, YYYY")
+  query GetCreditCard {
+    allWordpressWpCreditCard {
+      edges {
+        node {
+          title
+          slug
+          date(formatString: "MMMM DD, YYYY")
+        }
+      }
     }
   }
 `
