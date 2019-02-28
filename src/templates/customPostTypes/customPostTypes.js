@@ -24,21 +24,16 @@ export const CustomPostTypesTemplate = ({ content, title, date }) => {
   )
 }
 
-CustomPostTypesTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  title: PropTypes.string,
-}
-
 const CustomPostTypes = ({ data }) => {
-  const { WordpressWpCreditCard: creditCard } = data
+  console.info(data.wordpressWpCreditCard)
 
   return (
     <Layout>
-      <Helmet title={`${creditCard.title} | Blog`} />
+      <Helmet title={`${data.wordpressWpCreditCard.title} | Blog`} />
       <CustomPostTypesTemplate
-        content={creditCard.content}
-        title={creditCard.title}
-        date={creditCard.date}
+        content={data.wordpressWpCreditCard.content}
+        title={data.wordpressWpCreditCard.title}
+        date={data.wordpressWpCreditCard.date}
       />
     </Layout>
   )
@@ -53,15 +48,12 @@ CustomPostTypes.propTypes = {
 export default CustomPostTypes
 
 export const CustomPostTypesQuery = graphql`
-  query GetCreditCard {
-    allWordpressWpCreditCard {
-      edges {
-        node {
-          title
-          slug
-          date(formatString: "MMMM DD, YYYY")
-        }
-      }
+  query GetCreditCard($id: String!) {
+    wordpressWpCreditCard(id: { eq: $id }) {
+      id
+      title
+      slug
+      date(formatString: "MMMM DD, YYYY")
     }
   }
 `
