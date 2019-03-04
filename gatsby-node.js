@@ -106,6 +106,49 @@ exports.createPages = ({ actions, graphql }) => {
     .then(() => {
       return graphql(`
         {
+          allWordpressWpCreditCard {
+            edges {
+              node {
+                id
+                slug
+                status
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const customPostTypesTemplate = path.resolve(
+        `./src/templates/customPostTypes/customPostTypes.js`
+      )
+
+      // In production builds, filter for only published posts.
+      const allcustomPostTypes = result.data.allWordpressWpCreditCard.edges
+      const customPostTypes =
+        process.env.NODE_ENV === 'production'
+          ? getOnlyPublished(allcustomPostTypes)
+          : allcustomPostTypes
+      // Iterate over the array of posts
+      _.each(customPostTypes, ({ node: customPostType }) => {
+        // Create the Gatsby page for this WordPress post
+        createPage({
+          path: `/${customPostType.slug}/`,
+          component: customPostTypesTemplate,
+          context: {
+            id: customPostType.id,
+          },
+        })
+      })
+    })
+    .then(() => {
+      return graphql(`
+        {
           allWordpressCategory(filter: { count: { gt: 0 } }) {
             edges {
               node {
