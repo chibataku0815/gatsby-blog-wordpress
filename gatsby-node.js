@@ -72,7 +72,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const postTemplate = path.resolve(`./src/templates/post.js`)
+      const postTemplate = path.resolve(`./src/templates/post/post.js`)
       const blogTemplate = path.resolve(`./src/templates/blog/blog.js`)
 
       // In production builds, filter for only published posts.

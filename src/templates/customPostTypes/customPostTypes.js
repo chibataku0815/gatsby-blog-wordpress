@@ -7,16 +7,14 @@ import Layout from 'components/Layout'
 export const CustomPostTypesTemplate = ({ content, title, date }) => {
   return (
     <section>
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
-            <div>
-              <p>{date} - posted by </p>
-            </div>
+      <div className="section pt-5">
+        <div className="col-lg-8">
+          <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            {title}
+          </h1>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+          <div>
+            <p>{date} - posted by </p>
           </div>
         </div>
       </div>

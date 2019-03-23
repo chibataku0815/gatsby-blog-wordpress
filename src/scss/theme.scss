@@ -1,0 +1,98 @@
+.wp-themes {
+  img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  h2 {
+    position: relative;
+    margin-top: 2.6rem;
+    margin-bottom: 1.6rem;
+    padding: 15px 12px;
+    padding-top: 16px;
+    border-color: map-get($theme-colors, primary);
+    border-bottom: 1px solid #ddd;
+    border-left: 5px solid map-get($theme-colors, primary);
+    background: map-get($theme-colors, light);
+    color: map-get($theme-colors, primary);
+    font-weight: bold;
+    font-size: 1.65rem;
+    line-height: 2rem;
+  }
+
+  .cps-post-box {
+    padding: 30px;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.18);
+  }
+
+  .cps-post-title {
+    color: map-get($theme-colors, primary);
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+
+  .cps-post-main p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 2rem;
+    color: map-get($theme-colors, primary);
+    letter-spacing: 0.05em;
+    font-size: 1.1em;
+    line-height: 1.8em;
+  }
+
+  .concept-box2 {
+    position: relative;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    padding: 40px 25px 0;
+    width: 90%;
+    border: 1px solid #f7cf6a;
+
+    &::before {
+      position: absolute;
+      top: -21px;
+      padding: 20px 8px 20px 60px;
+      background: #fff;
+      color: #f7cf6a;
+      content: "注意点";
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 0;
+    }
+
+    &::after {
+      position: absolute;
+      top: -34px;
+      left: 20px;
+      padding: 15px;
+      width: 60px;
+      height: 60px;
+      border: 5px solid #fff;
+      border-radius: 40px;
+      background: #f7cf6a;
+      color: #fff;
+      content: "\f071";
+      text-align: center;
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
+
+  .entry-date {
+    color: #888;
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 0.75rem;
+  }
+
+  .marker {
+    background: linear-gradient(transparent 60%, #ffcedb 0%);
+  }
+}
