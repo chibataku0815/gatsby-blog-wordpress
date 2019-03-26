@@ -68,13 +68,11 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Noto+Sans+JP', 'Noto+Sans+JP'],
+          families: ['Noto+Sans+JP', 'Noto+Sans+JP', 'material icons'],
         },
       },
     },
     'gatsby-plugin-flow',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-purgecss',
     'gatsby-plugin-netlify',
   ],

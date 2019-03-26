@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import { Sidebar } from '@components/molecules/'
 import style from './style.module.scss'
 
 export default class IndexPage extends React.Component {
@@ -38,6 +39,9 @@ export default class IndexPage extends React.Component {
               </div>
             ))}
           </div>
+        </div>
+        <div className="col-lg-4">
+          <Sidebar />
         </div>
       </section>
     )

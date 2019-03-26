@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Breadcrumbs } from '@components/molecules/'
+import { Breadcrumbs, Sidebar } from '@components/molecules/'
 import Layout from '../components/Layout'
 
 export const PageTemplate = ({ title, content }) => {
@@ -19,7 +19,7 @@ export const PageTemplate = ({ title, content }) => {
             />
           </div>
           <div className="col-lg-4">
-            <p className="card">サイドバー</p>
+            <Sidebar />
           </div>
         </div>
       </div>

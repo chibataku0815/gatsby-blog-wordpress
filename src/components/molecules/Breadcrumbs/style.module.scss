@@ -13,8 +13,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding-top: 5px;
+      color: map-get($theme-colors, primary);
       content: "keyboard_arrow_right";
+      text-transform: none;
+      white-space: nowrap;
+      word-wrap: normal;
+      letter-spacing: normal;
+      font-size: 24px;
       font-family: $font-family-icons;
+      line-height: 1;
+      direction: ltr;
+
+      text-rendering: optimizeLegibility;
+      font-feature-settings: 'liga';
     }
 
     &:last-child::after {
@@ -23,12 +35,13 @@
   }
 
   &-link {
+    padding: 5px;
     color: map-get($theme-colors, primary);
   }
 
   &-icons {
     margin-right: 3px;
-    padding: 3px;
+    padding: 5px 3px 1px;
     border-radius: 50%;
     background: white;
     box-shadow: 0 0 4px rgba($gray-300, 1);
