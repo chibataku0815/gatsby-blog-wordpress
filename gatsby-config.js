@@ -75,5 +75,6 @@ module.exports = {
     'gatsby-plugin-flow',
     'gatsby-plugin-purgecss',
     'gatsby-plugin-netlify',
+    'gatsby-plugin-core-js',
   ],
 }
