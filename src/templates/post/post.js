@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
-import { Breadcrumbs } from '@components/molecules/'
+import { Breadcrumbs, Sidebar } from '@components/molecules/'
 import { Badge } from '@components/atoms/'
 import Layout from '../../components/Layout'
 
@@ -18,61 +18,38 @@ export const BlogPostTemplate = ({
 }) => {
   return (
     <section className="wp-themes container pt-5">
-      <div className="cps-post-box col-lg-8">
-        {categories && categories.length ? (
-          <div>
-            {categories.map(category => (
-              <span
-                className="cps-post-cat category-blog"
-                key={`${category.slug}cat`}
-              >
-                <Link to={`/${category.slug}/`}>
-                  <Badge value={category.name} />
-                </Link>
-              </span>
-            ))}
-          </div>
-        ) : null}
-        <h1 className="cps-post-title mt-3">{title}</h1>
-        <div className="text-right">
-          <time className="entry-date">
-            {date}/{modified}
-          </time>
-        </div>
-        <img src={featuredMedia.link} className="my-3" alt="" />
-        <div
-          className="cps-post-main"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-        <div>
-          <p>
-            {date} - posted by{' '}
-            <Link to={`/author/${author.slug}`}>{author.name}</Link>
-          </p>
+      <div className="row">
+        <div className="cps-post-box col-lg-8">
           {categories && categories.length ? (
             <div>
-              <h4>Categories</h4>
-              <ul className="taglist">
-                {categories.map(category => (
-                  <li key={`${category.slug}cat`}>
-                    <Link to={`/${category.slug}/`}>{category.name}</Link>
-                  </li>
-                ))}
-              </ul>
+              {categories.map(category => (
+                <span
+                  className="cps-post-cat category-blog"
+                  key={`${category.slug}cat`}
+                >
+                  <Link to={`/${category.slug}/`}>
+                    <Badge value={category.name} />
+                  </Link>
+                </span>
+              ))}
             </div>
           ) : null}
-          {tags && tags.length ? (
-            <div>
-              <h4>Tags</h4>
-              <ul className="taglist">
-                {tags.map(tag => (
-                  <li key={`${tag.slug}tag`}>
-                    <Link to={`/tags/${tag.slug}/`}>{tag.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
+          <h1 className="cps-post-title mt-3">{title}</h1>
+          <div className="text-right">
+            <time className="entry-date">
+              {date}/{modified}
+            </time>
+          </div>
+          <img src={featuredMedia.link} className="my-3" alt="" />
+          <div
+            className="cps-post-main"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </div>
+        <div className="col-lg-4">
+          <Sidebar>
+            <p>test child</p>
+          </Sidebar>
         </div>
       </div>
     </section>
