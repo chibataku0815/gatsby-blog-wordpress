@@ -1,14 +1,15 @@
 import React from 'react'
-// import Helmet from 'react-helmet'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-// import Layout from 'components/Layout'
+import Layout from 'components/Layout'
 import { CustomTypeList } from '@components/atoms/'
 
 function AnnualFeeTypes(props) {
   console.info(JSON.stringify(props.data.allWordpressWpCreditCard.edges))
   const customPosts = props.data.allWordpressWpCreditCard.edges
   return (
-    <div>
+    <Layout>
+      <Helmet title="static descriptions" />
       {customPosts.map(customPost => (
         <CustomTypeList
           key={customPost.node.id}
@@ -16,7 +17,7 @@ function AnnualFeeTypes(props) {
           posts=""
         />
       ))}
-    </div>
+    </Layout>
   )
 }
 
