@@ -9,12 +9,10 @@ import Layout from '../../components/Layout'
 export const BlogPostTemplate = ({
   content,
   categories,
-  tags,
   title,
   date,
   modified,
   featuredMedia,
-  author,
 }) => {
   return (
     <section className="wp-themes container pt-5">

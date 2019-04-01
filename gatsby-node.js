@@ -184,6 +184,42 @@ exports.createPages = ({ actions, graphql }) => {
     .then(() => {
       return graphql(`
         {
+          allWordpressWpCreditCard(filter: { annual_fee: { eq: 87 } }) {
+            edges {
+              node {
+                title
+                slug
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const annualFeeTemplate = path.resolve(`./src/templates/annualFee.js`)
+
+      // Create a Gatsby page for each WordPress Category
+      // console.info(JSON.stringify(result))
+      _.each(result.data.allWordpressWpCreditCard.edges, ({ node: cat }) => {
+        console.info(JSON.stringify(result.data.allWordpressWpCreditCard.edges))
+        createPage({
+          path: `/annual_fee/`,
+          component: annualFeeTemplate,
+          context: {
+            title: cat.title,
+            slug: cat.slug,
+          },
+        })
+      })
+    })
+    .then(() => {
+      return graphql(`
+        {
           allWordpressTag(filter: { count: { gt: 0 } }) {
             edges {
               node {
